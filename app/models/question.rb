@@ -1,5 +1,14 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id      :integer          not null, primary key
+#  text    :text
+#  poll_id :integer
+#
+
 class Question < ActiveRecord::Base
-  validates :text presence: true
+  validates :text, presence: true
 
   belongs_to(
     :poll,
