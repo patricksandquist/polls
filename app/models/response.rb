@@ -28,8 +28,11 @@ class Response < ActiveRecord::Base
   )
 
   has_one :question, through: :answer_choice, source: :question
+  has_one :poll, through: :question, source: :poll
+  has_one :poll_author, through: :poll, source: :author
 
   def sibling_responses
     self.question.responses.where.not(id: self.id)
   end
+
 end
